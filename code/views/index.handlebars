@@ -24,4 +24,17 @@
         {{/if}}
         {{/each}}
     </div>
+
+    <form action="/burgers/create" method="POST">
+        <div class="row">
+        <div class="input-field col s9">
+            <input placeholder="Add a burger" type="text" class="addBurger" name="addBurger" required="" aria-required="true"></input>
+        </div>
+        <div class="col s3">
+            <button class="btn waves-effect waves-light burgButton col offset-s3 s6" type="submit" name="action">Create!
+                <i class="fas fa-check"></i>
+            </button>
+        </div>
+        </div>
+    </form>
 </div>
