@@ -2,7 +2,7 @@ const connection = require('./connection.js');
 
 // Helper function for SQL syntax.
 // ["?", "?", "?"].toString() => "?,?,?";
-const printQuestionMarks = num => {
+const printQuestionMarks = (num) => {
     const questionMarkArray = [];
 
     for (let i = 0; i < num; i++) {
@@ -12,8 +12,8 @@ const printQuestionMarks = num => {
     return questionMarkArray.toString();
 };
 
-// helper function to convert object key: value pairs to SQL syntax
-const objToSql = obj => {
+// Helper function to convert object key: value pairs to SQL syntax
+const objToSql = (obj) => {
     const arr = [];
 
     for (const key in obj) {
@@ -26,16 +26,13 @@ const objToSql = obj => {
 
             arr.push(`${key}=${value}`);
         };
-        console.log(arr, 'array')
     }
     return arr.toString();
 }
 
-console.log(objToSql({thing: "value", otherThing: "otherValue"}))
-
 const orm = {
     selectAll: (table, _cb) => {
-        let query = `SELECT * FROM ${table};`;
+        const query = `SELECT * FROM ${table};`;
         connection.query(query, (err, res) => {
             if (err) throw err;
             _cb(res);
@@ -43,8 +40,7 @@ const orm = {
     },
 
     insertOne: (table, columns, values, _cb) => {
-        let query = `INSERT INTO ${table} (${columns.toString()}) VALUES (${printQuestionMarks(values.length)});`;
-        console.log(query);
+        const query = `INSERT INTO ${table} (${columns.toString()}) VALUES (${printQuestionMarks(values.length)});`;
         connection.query(query, values, (err, res) => {
             if (err) throw err;
             _cb(res);
@@ -53,8 +49,7 @@ const orm = {
 
     // objColVals is the data being changes, e.g. {name: "burgerName", devoured: true}, condition is where its changed
     updateOne: (table, objColVals, condition, _cb) => {
-        let query = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE id = ${condition};`;
-        console.log(query);
+        const query = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE id = ${condition};`;
         connection.query(query, (err, res) => {
             if (err) throw err;
             _cb(res);
