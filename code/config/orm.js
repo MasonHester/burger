@@ -16,7 +16,7 @@ const printQuestionMarks = (num) => {
 const objToSql = (obj) => {
     const arr = [];
 
-    for (const key in obj) {
+    for (let key in obj) {
         const value = obj[key];
 
         if (Object.hasOwnProperty.call(obj, key)) {
