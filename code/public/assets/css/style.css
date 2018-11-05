@@ -1,0 +1,24 @@
+body {
+    background-color: #d3d3ff;
+}
+
+button.burgerButton {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+}
+
+button.newBurger {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #9e9ef3 !important; 
+    color: #030303 !important;
+    border: 2px solid #030303 !important;
+    border-radius: 5px !important;
+}
+
+div.formRow {
+    background-color: #f3f3f3
+}

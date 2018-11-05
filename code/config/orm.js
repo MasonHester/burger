@@ -14,7 +14,7 @@ const printQuestionMarks = (num) => {
 
 // Helper function to convert object key: value pairs to SQL syntax
 const objToSql = (obj) => {
-    const arr = [];
+    const tempArray = [];
 
     for (let key in obj) {
         const value = obj[key];
@@ -24,10 +24,10 @@ const objToSql = (obj) => {
                 value = `'${value}'`;
             }
 
-            arr.push(`${key}=${value}`);
+            tempArray.push(`${key}=${value}`);
         };
     }
-    return arr.toString();
+    return tempArray.toString();
 }
 
 const orm = {
